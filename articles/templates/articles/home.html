@@ -1,0 +1,28 @@
+{% extends 'articles/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 50px 20px;">
+    <h1>Добро пожаловать в Блог!</h1>
+    <p style="font-size: 18px; margin: 30px 0;">
+        Это мини-сервис для создания и редактирования публикаций.
+    </p>
+    
+    <div style="margin: 40px 0;">
+        <a href="{% url 'article_list' %}" class="btn" style="font-size: 20px; padding: 15px 30px;">
+            📝 Перейти к статьям
+        </a>
+    </div>
+    
+    <div style="max-width: 600px; margin: 0 auto; text-align: left; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+        <h3>Функционал:</h3>
+        <ul style="font-size: 16px;">
+            <li>📖 Просмотр всех статей</li>
+            <li>✏️ Создание новых статей</li>
+            <li>🔧 Редактирование своих статей</li>
+            <li>👤 Авторизация пользователей</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
