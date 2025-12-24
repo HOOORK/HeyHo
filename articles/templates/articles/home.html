@@ -3,25 +3,25 @@
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
-<div style="text-align: center; padding: 50px 20px;">
-    <h1>Добро пожаловать в Блог!</h1>
-    <p style="font-size: 18px; margin: 30px 0;">
-        Это мини-сервис для создания и редактирования публикаций.
+<div style="text-align: center;">
+    <h1>Блог</h1>
+    <p style="margin: 20px 0; color: #666;">
+        Создавайте и редактируйте статьи
     </p>
-    
-    <div style="margin: 40px 0;">
-        <a href="{% url 'article_list' %}" class="btn" style="font-size: 20px; padding: 15px 30px;">
-            📝 Перейти к статьям
+
+    <div style="margin: 30px 0;">
+        <a href="{% url 'article_list' %}" class="btn" style="padding: 12px 24px;">
+            Перейти к статьям
         </a>
     </div>
-    
-    <div style="max-width: 600px; margin: 0 auto; text-align: left; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
-        <h3>Функционал:</h3>
-        <ul style="font-size: 16px;">
-            <li>📖 Просмотр всех статей</li>
-            <li>✏️ Создание новых статей</li>
-            <li>🔧 Редактирование своих статей</li>
-            <li>👤 Авторизация пользователей</li>
+
+    <div style="max-width: 500px; margin: 40px auto; text-align: left; padding: 20px; border: 1px solid #eee; border-radius: 4px;">
+        <h3 style="margin-top: 0;">Функции:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+            <li>Просмотр всех статей</li>
+            <li>Создание новых статей</li>
+            <li>Редактирование своих статей</li>
+            <li>Авторизация пользователей</li>
         </ul>
     </div>
 </div>

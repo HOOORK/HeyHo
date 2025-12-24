@@ -6,29 +6,31 @@
 
 {% block content %}
     <h2>{% if form.instance.pk %}Редактировать статью{% else %}Создать новую статью{% endif %}</h2>
-    
+
     <form method="post">
         {% csrf_token %}
-        
-        <div class="form-group">
+
+        <div style="margin-bottom: 20px;">
             {{ form.title.label_tag }}
-            {{ form.title }}
+            <input type="text" name="{{ form.title.name }}" value="{{ form.title.value|default:'' }}"
+                   style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-top: 5px;">
             {% if form.title.errors %}
-                <div class="error">{{ form.title.errors }}</div>
+                <div style="color: #c00; font-size: 14px; margin-top: 5px;">{{ form.title.errors }}</div>
             {% endif %}
         </div>
-        
-        <div class="form-group">
+
+        <div style="margin-bottom: 20px;">
             {{ form.content.label_tag }}
-            {{ form.content }}
+            <textarea name="{{ form.content.name }}"
+                      style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-top: 5px; height: 200px;">{{ form.content.value|default:'' }}</textarea>
             {% if form.content.errors %}
-                <div class="error">{{ form.content.errors }}</div>
+                <div style="color: #c00; font-size: 14px; margin-top: 5px;">{{ form.content.errors }}</div>
             {% endif %}
         </div>
-        
+
         <button type="submit" class="btn">
-            {% if form.instance.pk %}Сохранить изменения{% else %}Создать статью{% endif %}
+            {% if form.instance.pk %}Сохранить{% else %}Создать{% endif %}
         </button>
-        <a href="{% url 'article_list' %}" class="btn" style="background-color: #6c757d;">Отмена</a>
+        <a href="{% url 'article_list' %}" class="btn">Отмена</a>
     </form>
 {% endblock %}

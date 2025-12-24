@@ -2,22 +2,22 @@
 
 {% block content %}
     <div style="margin-bottom: 20px;">
-        <a href="{% url 'article_create' %}" class="btn btn-success">Создать новую статью</a>
+        <a href="{% url 'article_create' %}" class="btn">Создать статью</a>
     </div>
-    
-    <div class="article-list">
-        {% for article in articles %}
-            <div class="article-card">
-                <h3>{{ article.title }}</h3>
-                <p>{{ article.content|truncatewords:30 }}</p>
-                <p><small>Автор: {{ article.author.username }} | {{ article.created_at|date:"d.m.Y H:i" }}</small></p>
-                
-                {% if user == article.author %}
-                    <a href="{% url 'article_edit' article.id %}" class="btn">Редактировать</a>
-                {% endif %}
+
+    {% for article in articles %}
+        <div style="border-bottom: 1px solid #eee; padding: 20px 0;">
+            <h3 style="margin: 0 0 10px 0;">{{ article.title }}</h3>
+            <p style="margin: 10px 0; color: #666;">{{ article.content|truncatewords:30 }}</p>
+            <div style="font-size: 14px; color: #999; margin: 10px 0;">
+                {{ article.author.username }} | {{ article.created_at|date:"d.m.Y H:i" }}
             </div>
-        {% empty %}
-            <p>Пока нет статей. Будьте первым!</p>
-        {% endfor %}
-    </div>
+
+            {% if user == article.author %}
+                <a href="{% url 'article_edit' article.id %}" class="btn">Редактировать</a>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p style="text-align: center; color: #999; margin: 40px 0;">Нет статей</p>
+    {% endfor %}
 {% endblock %}
